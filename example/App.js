@@ -10,16 +10,34 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import RnProgress from 'rn-progress';
+import ProgressView from 'rn-progress';
 
 export default class App extends Component<{}> {
+
+  renderProgressBar = () => {
+    return (
+      <ProgressView
+        progressHeight={16}
+        progressWidth={200}
+        barColorCurrent="#f18326"
+        barColorCurrent2="#fcc769"
+        barColorTotal="#fce789"
+        style={styles.progressStyle}
+        ref={(progressView) => {
+          this.progressView = progressView;
+        }
+        }
+      />
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>☆RnProgress example☆</Text>
         <Text style={styles.instructions}>STATUS: loaded</Text>
         <Text style={styles.welcome}>☆☆☆</Text>
-        <RnProgress />
+        {this.renderProgressBar()}
       </View>
     );
   }
