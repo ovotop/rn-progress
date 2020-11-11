@@ -1,0 +1,2 @@
+cp -r ../android/src node_modules/__MODULE_NAME__
+react-native run-android
