@@ -48,7 +48,8 @@ export default class ProgressView extends Component {
 
   setNativeProps(props) {
     const { progressWidth, progressHeight } = this.props;
-    const { progress } = props;
+    const { total, current } = props;
+    const progress = current / total;
     const progressLength = progress * (progressWidth - progressHeight);
     // const strokeWidth = progressHeight - MARGIN_HERIZONTAL * 2;
     const x0 = progressHeight / 2;

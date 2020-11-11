@@ -13,10 +13,32 @@ import {Text, TouchableOpacity} from 'react-native';
 
 import ProgressView from 'rn-progress';
 import styles, {progressWidth, progressHeight} from './styles';
+const MAX_VALUE = 1000;
 export default class App extends Component<{}> {
-  startProgress = () => {};
+  constructor(props) {
+    super(props);
+    this.renderCount = 0;
+    this.progressValue = 0;
+  }
 
-  updateProgressBar = () => {};
+  startProgress = () => {
+    this.progressValue = 0;
+    this.updateProgressBar();
+  };
+
+  updateProgressBar = () => {
+    this.progressValue++;
+    if (this.progressValue > MAX_VALUE) {
+      this.progressValue = 0;
+    } else {
+      setTimeout(this.updateProgressBar, 20);
+    }
+
+    this.progressView.setNativeProps({
+      total: MAX_VALUE,
+      current: this.progressValue,
+    });
+  };
 
   renderProgressBar = () => {
     return (
@@ -35,6 +57,8 @@ export default class App extends Component<{}> {
   };
 
   render() {
+    console.log(`Render Called: ${this.renderCount++}`);
+
     return (
       <TouchableOpacity style={styles.container} onPress={this.startProgress}>
         <Text style={styles.welcome}>☆RnProgress example☆</Text>
