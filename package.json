@@ -6,9 +6,7 @@
   "main": "index.js",
   "files": [
     "README.md",
-    "android",
     "index.js",
-    "ios",
     "rn-progress.podspec"
   ],
   "scripts": {

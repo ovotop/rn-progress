@@ -56,9 +56,9 @@ export default class ProgressView extends Component {
     const y0 = Math.round(progressHeight / 2) - MARGIN_HERIZONTAL;
     this.progressPath && this.progressPath.setNativeProps({ d: `M${x0} ${y0}  l${progressLength} 0` });
 
-    if (this.progressBgG !== undefined && !isIOS) {
+    if (this.progressBgG !== undefined) {
       this.progressBgG.setNativeProps({
-        transform: `translate(${-(this.phase++) % Math.floor(progressHeight) * 2},0)`
+        x: - (this.phase++) % Math.floor(progressHeight) * 2
       });
     }
   }
@@ -91,7 +91,7 @@ export default class ProgressView extends Component {
                 height={`${patternSize}`}
                 patternUnits="userSpaceOnUse"
               >
-                <G transform="translate(0,0)" ref={(progressBgG) => { this.progressBgG = progressBgG; }}>
+                <G x='0' y='0' ref={(progressBgG) => { this.progressBgG = progressBgG; }}>
                   <G transform="skewX(-45)">
                     <Rect
                       x="0"
