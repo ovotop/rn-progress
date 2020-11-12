@@ -16,8 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caojianfeng/rn-progress.git",
-    "baseUrl": "https://github.com/caojianfeng/rn-progress"
+    "url": "git+https://github.com/ovotop/rn-progress.git",
+    "baseUrl": "https://github.com/ovotop/rn-progress"
   },
   "keywords": [
     "react-native"
