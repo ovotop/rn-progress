@@ -13,7 +13,7 @@ import {Text, TouchableOpacity} from 'react-native';
 
 import ProgressView from 'rn-progress';
 import styles, {progressWidth, progressHeight} from './styles';
-const MAX_VALUE = 1000;
+const MAX_VALUE = 300;
 export default class App extends Component<{}> {
   constructor(props) {
     super(props);
