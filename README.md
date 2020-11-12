@@ -1,5 +1,8 @@
 # rn-progress
 
+## Improving!!! And Can Use Now
+The interface will change a lot.
+
 ## Getting started
 
 `$ npm install rn-progress --save`
