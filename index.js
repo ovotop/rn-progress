@@ -31,13 +31,13 @@ export default class ProgressView extends Component {
     progressWidth: PropTypes.number.isRequired,
     progressHeight: PropTypes.number.isRequired,
     style: ViewPropTypes.style,
-    barColorCurrent: PropTypes.string,
+    barColorCurrentPrimary: PropTypes.string,
     barColorTotal: PropTypes.string,
   };
 
   static defaultProps = {
     style: {},
-    barColorCurrent: '#00e0ff',
+    barColorCurrentPrimary: '#00e0ff',
     barColorTotal: '#ffffff',
   };
 
@@ -66,8 +66,8 @@ export default class ProgressView extends Component {
   render() {
     const {
       style,
-      barColorCurrent,
-      barColorCurrent2,
+      barColorCurrentPrimary,
+      barColorCurrentSecondary,
       barColorTotal,
       progressWidth,
       progressHeight
@@ -81,7 +81,7 @@ export default class ProgressView extends Component {
       <View style={[styles.container, style]}>
 
         <Svg height={`${progressHeight}`} width={`${progressWidth}`}>
-          {barColorCurrent2 && (
+          {barColorCurrentSecondary && (
             <Defs>
               <Pattern
                 id="StripePattern"
@@ -99,7 +99,7 @@ export default class ProgressView extends Component {
                       width={`${patternSize}`}
                       height={`${patternSize}`}
                       stroke="none"
-                      fill={`${barColorCurrent}`}
+                      fill={`${barColorCurrentPrimary}`}
                     />
                     <Rect
                       x={`${patternSize}`}
@@ -107,7 +107,7 @@ export default class ProgressView extends Component {
                       width={`${patternSize}`}
                       height={`${patternSize}`}
                       stroke="none"
-                      fill={`${barColorCurrent2}`}
+                      fill={`${barColorCurrentSecondary}`}
                     />
                     <Rect
                       x={`${patternSize * 2}`}
@@ -115,7 +115,7 @@ export default class ProgressView extends Component {
                       width={`${patternSize}`}
                       height={`${patternSize}`}
                       stroke="none"
-                      fill={`${barColorCurrent}`}
+                      fill={`${barColorCurrentPrimary}`}
                     />
                     <Rect
                       x={`${patternSize * 3}`}
@@ -123,7 +123,7 @@ export default class ProgressView extends Component {
                       width={`${patternSize}`}
                       height={`${patternSize}`}
                       stroke="none"
-                      fill={`${barColorCurrent2}`}
+                      fill={`${barColorCurrentSecondary}`}
                     />
                     <Rect
                       x={`${patternSize * 4}`}
@@ -131,7 +131,7 @@ export default class ProgressView extends Component {
                       width={`${patternSize}`}
                       height={`${patternSize}`}
                       stroke="none"
-                      fill={`${barColorCurrent}`}
+                      fill={`${barColorCurrentPrimary}`}
                     />
                   </G>
                 </G>
@@ -147,7 +147,7 @@ export default class ProgressView extends Component {
           </G>
           <G
             fill="none"
-            stroke={barColorCurrent2 ? 'url(#StripePattern)' : barColorCurrent}
+            stroke={barColorCurrentSecondary ? 'url(#StripePattern)' : barColorCurrentPrimary}
             ref={(progressG) => { this.progressG = progressG; }}
           >
             <Path

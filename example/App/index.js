@@ -45,8 +45,8 @@ export default class App extends Component<{}> {
       <ProgressView
         progressHeight={progressHeight}
         progressWidth={progressWidth}
-        barColorCurrent="#f18326"
-        barColorCurrent2="#fcc769"
+        barColorCurrentPrimary="#f18326"
+        barColorCurrentSecondary="#fcc769"
         barColorTotal="#fce789"
         style={styles.progressStyle}
         ref={(progressView) => {
